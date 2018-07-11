@@ -1,3 +1,6 @@
+import unittest
+
+
 def merge(a, b):
     """
     It Accepts 2 sorted arrays and returns 1
@@ -39,3 +42,29 @@ def merge_sort(a):
     c = merge(l, r)
     for i in range(len(a)):
         a[i] = c[i]
+
+
+class TestCall(unittest.TestCase):
+    def test_example_1(self):
+        a = [5, 1, 3, 8, 9, 20, 90, 2, 7, 5]
+        merge_sort(a)
+        self.assertEqual(a, [1, 2, 3, 5, 5, 7, 8, 9, 20, 90])
+
+    def test_example_2(self):
+        a = [1, 1, 1, 2, 1, 1, 1, 1]
+        merge_sort(a)
+        self.assertEqual(a, [1, 1, 1, 1, 1, 1, 1, 2])
+
+    def test_example_3(self):
+        a = [1, 1, 1, 1, 1, 1, 1, 1]
+        merge_sort(a)
+        self.assertEqual(a, [1, 1, 1, 1, 1, 1, 1, 1])
+
+    def test_example_4(self):
+        a = [1]
+        merge_sort(a)
+        self.assertEqual(a, [1])
+
+
+if __name__ == '__main__':
+    unittest.main()
