@@ -14,3 +14,11 @@ def fib(n):
         result.append(y)
         x, y, i = y, x + y, i + 1
     return result
+
+
+def fib_array(n):
+    array = [0 for _ in range(n+1)]
+    array[:2] = 0, 1
+    for i in range(2, n+1):
+        array[i] = array[i-1] + array[i-2]
+    return array[-1]
